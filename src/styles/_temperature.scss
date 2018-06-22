@@ -1,0 +1,13 @@
+.temp-unit {
+    font-size: .45rem;
+    left: 0;
+    position: absolute;
+    text-transform: uppercase;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.temp-min, .temp-max {
+    display: inline-block;
+    font-size: 1.25rem;
+}

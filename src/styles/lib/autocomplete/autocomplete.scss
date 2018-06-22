@@ -1,0 +1,81 @@
+@function rem($target-px, $context: 48px) {
+  $target-px: $target-px / ($target-px * 0 + 1);
+  $context: $context / ($context * 0 + 1);
+  @return ($target-px / $context) * 1rem;
+}
+
+.tp-autocomplete {
+  margin-bottom: 15px;
+  position: relative;
+}
+
+.tp-ac__input {
+  border: solid 1px transparent;
+  border-radius: 0;
+  font-size: rem(20px);
+  font-weight: bold;
+  padding: rem(5px, 20px);
+  text-overflow: ellipsis;
+  width: 100%;
+
+  &::placeholder {
+    color: $color-secondary;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &::-ms-clear {
+    display: none;
+  }
+}
+
+.tp-ac__list {
+  background-color: $color-secondary;
+  box-shadow: 5px 5px 15px .005rem rgba(0, 0, 0, .25);
+  color: $color-primary;
+  font-size: .5rem;
+  font-weight: bold;
+  list-style-type: none;
+  margin: 0 auto;
+  padding-left: 0;
+  width: 50%;
+  z-index: 1;
+
+  @media (max-width: $screen-md - 1px) {
+    width: 100%;
+  }
+}
+
+.tp-ac__item {
+  cursor: pointer;
+  overflow: hidden;
+  padding: .5rem;
+  text-overflow: ellipsis;
+  user-select: none;
+  white-space: nowrap;
+
+  &:hover,
+  &.is-active {
+    background-color: $color-primary;
+    color: $color-secondary;
+  }
+
+  &.no-results,
+  &.no-results {
+    :hover {
+      background-color: $color-white;
+      cursor: default;
+    }
+  }
+
+  span {
+    color: #4a4a4a;
+    font-weight: bold;
+  }
+
+  &+.tp-ac__item {
+    border-top: 1px solid $color-primary;
+  }
+}
